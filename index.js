@@ -2,8 +2,9 @@ const puppeteer = require('puppeteer');
 const $ = require('cheerio');
 const CronJob = require('cron').CronJob;
 const nodemailer = require('nodemailer');
+const url = process.argv[2];
+const belowthis = process.argv[3];
 
-const url = 'https://www.amazon.in/dp/B07XP45RW1';
 
 async function configureBrowser() {
     const browser = await puppeteer.launch();
@@ -22,7 +23,7 @@ async function checkPrice(page) {
         
         let currentPrice = Number(Price.replace(/[^0-9.-]+/g,""));
 
-        if (currentPrice < 29000) {
+        if (currentPrice < belowthis) {
             console.log("BUY!!!! " + currentPrice);
             sendNotification(currentPrice);
         }
