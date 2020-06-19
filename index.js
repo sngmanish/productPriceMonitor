@@ -44,8 +44,8 @@ async function sendNotification(price) {
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'senderemail@gmail.com',
-        pass: 'pw'
+        user: 'becauseifeltlike@gmail.com',
+        pass: 'fuckshitup'
       }
     });
   
@@ -53,8 +53,8 @@ async function sendNotification(price) {
     let htmlText = `<a href=\"${url}\">Link</a>`;
   
     let info = await transporter.sendMail({
-      from: '"Price Tracker" <from@gmail.com>',
-      to: "to@gmail.com",
+      from: '"Price Tracker" <becauseifeltlike@gmail.com>',
+      to: "manish.bk07@gmail.com",
       subject: 'Price dropped to ' + price, 
       text: textToSend,
       html: htmlText
